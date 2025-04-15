@@ -1,6 +1,6 @@
 <h1 align="center">Chatting Application STACKBOX</h1>
 
-<h3 align="center">This is a Chatting Application . In this project we build and deploy a real-time chat application within 2 days With Authentication and Avtar. Using React.js, Socket.io, Nodejs</h3>
+<h3 align="center">This is a Peer-to-Peer Chat App.  </h3>
 
 <h2 align="center">🖥️ Tech Stack</h2>
 
