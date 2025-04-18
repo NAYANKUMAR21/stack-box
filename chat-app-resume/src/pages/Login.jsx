@@ -9,7 +9,7 @@ import { loginRoute } from "../utils/APIRoutes";
 export const LoadingSpinner = () => (
   <div className="flex justify-center items-center">
     <svg
-      className="w-6 h-6 text-white animate-spin"
+      className="w-6 h-6 text-black animate-spin"
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 24 24"
@@ -91,11 +91,10 @@ export default function Login() {
           className="flex flex-col gap-6 bg-dark-800 rounded-3xl p-12 shadow-lg w-[90%] max-w-md"
         >
           <div className="flex items-center justify-center gap-3 mb-2">
+            {/* https://png.pngtree.com/png-clipart/20200224/original/pngtree-data-base-concept-cartoon-style-png-image_5249227.jpg */}
             <img
               className="h-16 rounded-xl"
-              src={
-                "https://png.pngtree.com/png-clipart/20200224/original/pngtree-data-base-concept-cartoon-style-png-image_5249227.jpg"
-              }
+              src={"/chat-logo.png"}
               alt="logo"
             />
             <h2 className="text-black font-bold text-3xl tracking-wide">

@@ -28,11 +28,8 @@ export default function Contacts({ contacts, changeChat }) {
         <div className="grid grid-rows-[10%_75%_15%] overflow-hidden bg-blue-100">
           {/* Brand */}
           <div className="flex items-center justify-center gap-4 py-2">
-            <img
-              src="https://png.pngtree.com/png-clipart/20200224/original/pngtree-data-base-concept-cartoon-style-png-image_5249227.jpg"
-              alt="logo"
-              className="h-8 rounded-xl"
-            />
+            {/* src="https://png.pngtree.com/png-clipart/20200224/original/pngtree-data-base-concept-cartoon-style-png-image_5249227.jpg" */}
+            <img src="/chat-logo.png" alt="logo" className="h-8 rounded-xl" />
             <h5 className="text-blue-600 uppercase text-lg font-semibold">
               STACK BOX
             </h5>

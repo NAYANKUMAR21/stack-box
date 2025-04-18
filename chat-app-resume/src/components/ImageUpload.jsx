@@ -5,8 +5,10 @@ import { toast, ToastContainer } from "react-toastify";
 import { toastOptions } from "./SetAvatar";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { LoadingSpinner } from "../pages/Login";
 
 export default function ImageUploadComponent() {
+  const [loading, setLoading] = useState(false);
   const [image, setImage] = useState(null);
   const [imageReader, setImageReader] = useState(null);
   const [err, setError] = useState("");
@@ -39,6 +41,7 @@ export default function ImageUploadComponent() {
       return;
     }
     try {
+      setLoading(true);
       const res = await axios.post(
         "https://api.cloudinary.com/v1_1/dc3akfh6t/image/upload",
         formData
@@ -54,6 +57,7 @@ export default function ImageUploadComponent() {
       });
       console.log(data);
       // setError("");
+      setLoading(false);
       if (data.isSet) {
         user.isAvatarImageSet = true;
         user.avatarImage = data.image;
@@ -64,10 +68,12 @@ export default function ImageUploadComponent() {
         navigate("/");
         return;
       } else {
+        setLoading(false);
         toast.error("Error setting avatar. Please try again.", toastOptions);
         return;
       }
     } catch (er) {
+      setLoading(false);
       console.log(er);
       setError(er.message);
       console.error(er);
@@ -77,9 +83,15 @@ export default function ImageUploadComponent() {
   console.log(imageReader);
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 px-4">
-      <div className="bg-white shadow-xl rounded-2xl p-6 w-full max-w-md">
-        <h2 className="text-2xl font-semibold text-gray-700 mb-4 text-center">
+    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 px-4 border border-black">
+      <div className="bg-white shadow-xl rounded-2xl p-6 w-full max-w-md pt-10">
+        <img
+          className="h-16 rounded-xl m-auto"
+          src={"/chat-logo.png"}
+          alt="logo"
+        />
+
+        <h2 className="text-2xl font-semibold text-gray-700 mb-4 mt-4 text-center">
           Upload Your Image
         </h2>
 
@@ -127,11 +139,12 @@ export default function ImageUploadComponent() {
           className="hidden"
         />
       </div>
+
       <button
         onClick={uploadImage}
-        className="bg-black hover:bg-blue-800 text-white font-bold py-3 px-8 rounded-md uppercase tracking-wide transition mt-5 cursor-pointer"
+        className="bg-[#0078ff] hover:bg-blue-800 text-white font-bold py-3 px-8 rounded-md uppercase tracking-wide transition mt-5 cursor-pointer"
       >
-        Upload Image
+        {loading ? <LoadingSpinner /> : "Upload Image"}
       </button>
       <ToastContainer />
     </div>
