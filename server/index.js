@@ -35,6 +35,9 @@ const io = socket(server, {
   },
 });
 
+app.get("/", (req, res) => {
+  return res.send("Welcome to backend it working fine");
+});
 global.onlineUsers = new Map();
 io.on("connection", (socket) => {
   global.chatSocket = socket;
