@@ -30,7 +30,7 @@
   <img src="https://img.shields.io/badge/Render-430098?style=for-the-badge&logo=render&logoColor=white" alt="render" />
 </p>
 
-<h3 align="center"><a href="https://stackbox.vercel.app/"><strong>Want to see live preview »</strong></a></h3>
+<h3 align="center"><a href="https://stackbox.space/"><strong>Want to see live preview »</strong></a></h3>
 
 <br />
 
