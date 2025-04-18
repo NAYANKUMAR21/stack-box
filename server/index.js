@@ -19,7 +19,7 @@ mongoose
     console.log("DB Connetion Successfull");
   })
   .catch((err) => {
-    console.log(err.message);
+    console.error(err);
   });
 
 app.use("/api/auth", authRoutes);
@@ -30,7 +30,7 @@ const server = app.listen(process.env.PORT, () =>
 );
 const io = socket(server, {
   cors: {
-    origin: "http://localhost:3000",
+    origin: "http://localhost:5173",
     credentials: true,
   },
 });
